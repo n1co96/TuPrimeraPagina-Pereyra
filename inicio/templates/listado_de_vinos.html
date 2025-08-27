@@ -8,14 +8,14 @@
 <body>
 <nav>
     <a href = {% url "inicio" %} >inicio</a>
-    <a href = {% url "crear_auto" %} >crear auto</a>
-    <a href = {% url "listado_de_autos" %} >listado de autos</a>
+    <a href = {% url "crear_vino" %} >crear vino</a>
+    <a href = {% url "listado_de_vinos" %} >listado de vinos</a>
 </nav>
-    <h1>Listado Deautos</h1>
-    {%if autos %}
+    <h1>Listado De vinos</h1>
+    {%if vinos %}
         <ul>
-            {% for auto in autos %}
-            <li>{{auto}}</li>
+            {% for Vino in vinos %}
+            <li>{{Vino}}</li>
 
             {% endfor %}
         </ul>

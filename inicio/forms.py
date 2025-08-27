@@ -1,5 +1,5 @@
 from django import forms
 
-class FormularioCrearAuto(forms.Form):
+class FormularioCrearvino(forms.Form):
     marca = forms.CharField(max_length=20)
     modelo = forms.CharField(max_length=20)

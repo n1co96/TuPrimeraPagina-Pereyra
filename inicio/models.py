@@ -1,6 +1,6 @@
 from django.db import models
 
-class Auto(models.Model):
+class Vino(models.Model):
     modelo= models.CharField(max_length=20)
     marca= models.CharField(max_length=20)
 

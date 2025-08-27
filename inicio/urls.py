@@ -1,9 +1,9 @@
 from django.urls import path
-from inicio.views import inicio, crear_auto, listado_de_autos
+from inicio.views import inicio, crear_vino, listado_de_vinos
 
 urlpatterns = [
     path('inicio/', inicio,name='inicio'),
-    #path('autos/crear/<marca>/<modelo>/',crear_auto),
-    path('autos/',listado_de_autos,name='listado_de_autos'),
-    path('autos/crear/',crear_auto,name='crear_auto'),
+    #path('vinos/crear/<marca>/<modelo>/',crear_vino),
+    path('vinos/',listado_de_vinos,name='listado_de_vinos'),
+    path('vinos/crear/',crear_vino,name='crear_vino'),
 ]
