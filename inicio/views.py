@@ -29,3 +29,9 @@ def listado_de_vinos(request):
 
 def sobre_mi(request):
     return render(request, 'sobre_mi.html')
+
+def detalle_vino(request):
+    return render(render, 'detalle_vino.html')
+
+
+

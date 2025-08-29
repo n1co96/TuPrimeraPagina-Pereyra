@@ -5,6 +5,12 @@
     <title>Sobre mí</title>
 </head>
 <body>
+<nav>
+    <a href = {% url "inicio" %} >inicio</a>
+    <a href = {% url "crear_vino" %} >crear vino</a>
+    <a href = {% url "listado_de_vinos" %} >listado de vinos</a>
+    <a href="{% url 'sobre_mi' %}">Sobre mí</a>
+</nav>
     <h1>Sobre mí</h1>
     <p>Hola! 👋 Soy Nicolas Pereyra y este es mi primer proyecto en Django.</p>
     <p>La página fue creada para registrar y listar vinos 🍷</p>
