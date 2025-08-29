@@ -14,7 +14,7 @@ def crear_vino(request):
         formulario=FormularioCrearvino(request.POST)
         if formulario.is_valid():
             info=formulario.cleaned_data
-            vino=Vino(marca=request.POST.get('marca'), modelo=request.POST.get('modelo'))
+            vino=Vino(marca=request.POST.get('marca'), año=request.POST.get('año'), cantidad=request.POST.get('cantidad'))
             vino.save()
         return redirect('listado_de_vinos')
     else:
@@ -26,3 +26,6 @@ def listado_de_vinos(request):
     vinos=Vino.objects.all()
 
     return render (request,'listado_de_vinos.html',{'vinos': vinos})
+
+def sobre_mi(request):
+    return render(request, 'sobre_mi.html')
