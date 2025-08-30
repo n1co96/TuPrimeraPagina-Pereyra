@@ -12,8 +12,14 @@
     <a href = {% url "listado_de_vinos" %} >listado de vinos</a>
     <a href="{% url 'sobre_mi' %}">Sobre mí</a>
 </nav>
-    <h1>Detalle de vino {{Vino.marca}}</h1>
-    <p> cantidad: {%Vino.cantidad%}  </p>
+    <h1>Detalle del vino</h1>
+
+<p>Marca: {{ object.marca }}</p>
+<p>Año: {{ object.año }}</p>
+<p>ID: {{ object.id }}</p>
+<p>cantidad: {{ object.cantidad }}</p>
+
+<a href="{% url 'listado_de_vinos' %}">Volver al listado</a>
 
 
 

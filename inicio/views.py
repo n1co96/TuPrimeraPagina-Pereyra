@@ -2,11 +2,37 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from inicio.models import Vino
 from inicio.forms import FormularioCrearvino
+from django.views.generic import DetailView,TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import login
+from django.shortcuts import redirect
+from django.views.generic import CreateView
+from .forms import RegistroUsuarioForm
+
+class RegistroUsuarioView(CreateView):
+    template_name = "registro.html"
+    form_class = RegistroUsuarioForm
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect("inicio")
 # Create your views here.
-def inicio(request):
 
-    return render(request, 'inicio.html')
+class CustomLoginView(LoginView):
+    template_name = "login.html"
 
+
+class CustomLogoutView(LogoutView):
+    template_name = "logout.html"
+
+
+class InicioView(LoginRequiredMixin,TemplateView):
+    template_name = "inicio.html"
+
+@login_required(login_url="/admin/login/")
 def crear_vino(request):
 
     print(request.POST)
@@ -30,8 +56,9 @@ def listado_de_vinos(request):
 def sobre_mi(request):
     return render(request, 'sobre_mi.html')
 
-def detalle_vino(request):
-    return render(render, 'detalle_vino.html')
+class DetalleVinoView(DetailView):
+    model = Vino
+    template_name = "detalle_vino.html"
 
 
 

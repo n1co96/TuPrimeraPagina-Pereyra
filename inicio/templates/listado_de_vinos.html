@@ -15,13 +15,11 @@
     <h1>Listado De vinos</h1>
     {%if vinos %}
         <ul>
-            {% for Vino in vinos %}
-            <li>{{Vino.marca}}, {{Vino.año}} <a href="{% url 'detalle_vino' %}">detalle</a></li>
-
-
-
-
-            {% endfor %}
+            {% for vino in vinos %}
+    <p>{{ vino.marca }} ({{ vino.año }})
+       <a href="{% url 'detalle_vino' vino.id %}">Ver detalle</a>
+    </p>
+    {% endfor %}
         </ul>
         {% else %}
            <p>no hay datos</p>
